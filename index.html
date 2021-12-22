@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style/style.css">
   
   <title>Frontend Mentor | Time tracking dashboard</title>
 
@@ -16,65 +20,119 @@
 </head>
 <body>
 
-  Report for
-  Jeremy Robson
+  <div class="main-wrap d-flex">
+    <main class="d-flex">
+      <div class="profile border-radius">
+        <div class="profile-wrap d-flex border-radius padding">
+          <img src="images/image-jeremy.png" alt="profile-pic" class="profile-pic">
+          <div class="name-wrap d-flex">
+            <p class="report-for opacity">Report for</p>
+            <p class="name">Jeremy Robson</p>
+          </div>
+        </div>
+        <div class="timelapse-wrap d-flex padding">
+          <p class="timelapse" onclick="addActive(this)" data-time="day">Daily</p>
+          <p class="timelapse active" onclick="addActive(this)" data-time="week">Weekly</p>
+          <p class="timelapse" onclick="addActive(this)" data-time="month">Monthly</p>
+        </div>
+      </div>
 
-  Daily
-  Weekly
-  Monthly
-
-  Work
-  5hrs <!-- daily -->
-  Previous - 7hrs <!-- daily -->
-  32hrs <!-- weekly -->
-  Previous - 36hrs <!-- weekly -->
-  103hrs <!-- monthly -->
-  Previous - 128hrs <!-- monthly -->
-
-  Play
-  1hr <!-- daily -->
-  Previous - 2hrs <!-- daily -->
-  10hrs <!-- weekly -->
-  Previous - 8hrs <!-- weekly -->
-  23hrs <!-- monthly -->
-  Previous - 29hrs <!-- monthly -->
-
-  Study
-  0hrs <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  4hrs <!-- weekly -->
-  Previous - 7hrs <!-- weekly -->
-  13hrs <!-- monthly -->
-  Previous - 19hrs <!-- monthly -->
-
-  Exercise
-  1hr <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  4hrs <!-- weekly -->
-  Previous - 5hrs <!-- weekly -->
-  11hrs <!-- monthly -->
-  Previous - 18hrs <!-- monthly -->
-
-  Social
-  1hr <!-- daily -->
-  Previous - 3hrs <!-- daily -->
-  5hrs <!-- weekly -->
-  Previous - 10hrs <!-- weekly -->
-  21hrs <!-- monthly -->
-  Previous - 23hrs <!-- monthly -->
-
-  Self Care
-  0hrs <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  2hrs <!-- weekly -->
-  Previous - 2hrs <!-- weekly -->
-  7hrs <!-- monthly -->
-  Previous - 11hrs <!-- monthly -->
-
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+      <div class="stats">
+        <div class="card-wrap card-work">
+          <img src="images/icon-work.svg" alt="icon-work" class="bg-icon bg-icon-work">
+          <div class="card">
+            <div class="activity-wrap">
+              <p class="activity">Work</p>
+              <div class="menu-icon-wrap">
+                <img src="images/icon-ellipsis.svg" alt="menu-icon" class="menu-icon">
+              </div>
+            </div>
+            <div class="time-wrap">
+              <p class="time-spent" data-day="5hrs" data-week="32hrs" data-month="103hrs">32hrs</p>
+              <p class="previous"><span class="last-time">Last Week</span> - <span class="previous-time-spent" data-day="7hrs" data-week="36hrs" data-month="128hrs">36hrs</span></p>
+            </div>
+            
+          </div>
+        </div>
+        <div class="card-wrap card-play">
+          <img src="images/icon-play.svg" alt="icon-play" class="bg-icon bg-icon-play">
+          <div class="card">
+            <div class="activity-wrap">
+              <p class="activity">Play</p>
+              <div class="menu-icon-wrap">
+                <img src="images/icon-ellipsis.svg" alt="menu-icon" class="menu-icon">
+              </div>
+            </div>
+            <div class="time-wrap">
+              <p class="time-spent" data-day="1hr" data-week="10hrs" data-month="23hrs">10hrs</p>
+              <p class="previous"><span class="last-time">Last Week</span> - <span class="previous-time-spent" data-day="2hrs" data-week="8hrs" data-month="29hrs">8hrs</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-wrap card-study">
+          <img src="images/icon-study.svg" alt="icon-study" class="bg-icon bg-icon-study">
+          <div class="card">
+            <div class="activity-wrap">
+              <p class="activity">Study</p>
+              <div class="menu-icon-wrap">
+                <img src="images/icon-ellipsis.svg" alt="menu-icon" class="menu-icon">
+              </div>
+            </div>
+            <div class="time-wrap">
+              <p class="time-spent" data-day="0hrs" data-week="4hrs" data-month="13hrs">4hrs</p>
+              <p class="previous"><span class="last-time">Last Week</span> - <span class="previous-time-spent" data-day="1hr" data-week="7hrs" data-month="19hrs">7hrs</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-wrap card-exercise">
+          <img src="images/icon-exercise.svg" alt="icon-exercise" class="bg-icon bg-icon-exercise">
+          <div class="card">
+            <div class="activity-wrap">
+              <p class="activity">Exercise</p>
+              <div class="menu-icon-wrap">
+                <img src="images/icon-ellipsis.svg" alt="menu-icon" class="menu-icon">
+              </div>
+            </div>
+            <div class="time-wrap">
+              <p class="time-spent" data-day="1hr" data-week="4hrs" data-month="11hrs">4hrs</p>
+              <p class="previous"><span class="last-time">Last Week</span> - <span class="previous-time-spent" data-day="1hr" data-week="5hrs" data-month="18hrs">5hrs</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-wrap card-social">
+          <img src="images/icon-social.svg" alt="icon-social" class="bg-icon  bg-icon-social">
+          <div class="card">
+            <div class="activity-wrap">
+              <p class="activity">Social</p>
+              <div class="menu-icon-wrap">
+                <img src="images/icon-ellipsis.svg" alt="menu-icon" class="menu-icon">
+              </div>
+            </div>
+            <div class="time-wrap">
+              <p class="time-spent" data-day="1hr" data-week="5hrs" data-month="21hrs">5hrs</p>
+              <p class="previous"><span class="last-time">Last Week</span> - <span class="previous-time-spent" data-day="3hrs" data-week="10hrs" data-month="23hrs">10hrs</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-wrap card-self-care">
+          <img src="images/icon-self-care.svg" alt="icon-self-care" class="bg-icon bg-icon-self-care">
+          <div class="card">
+            <div class="activity-wrap">
+              <p class="activity">Self Care</p>
+              <div class="menu-icon-wrap">
+                <img src="images/icon-ellipsis.svg" alt="menu-icon" class="menu-icon">
+              </div>
+            </div>
+            <div class="time-wrap">
+              <p class="time-spent" data-day="0hrs" data-week="2hrs" data-month="7hrs">2hrs</p>
+              <p class="previous"><span class="last-time">Last Week</span> - <span class="previous-time-spent" data-day="1hr" data-week="2hrs" data-month="11hrs">2hrs</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
+
+  <script src="script/script.js"></script>
 </body>
 </html>
